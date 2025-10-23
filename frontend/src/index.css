@@ -1,0 +1,222 @@
+/**
+ * Global CSS Styles
+ * 
+ * This file contains global CSS styles and Tailwind CSS imports for the
+ * CV Builder frontend application. It includes base styles, custom
+ * component styles, and utility classes.
+ * 
+ * Business Logic:
+ * - Imports Tailwind CSS base, components, and utilities
+ * - Defines global styles for consistent typography and spacing
+ * - Includes custom CSS for components not covered by Tailwind
+ * - Sets up smooth scrolling and focus styles for accessibility
+ * - Defines custom scrollbar styles for better UX
+ * 
+ * @fileoverview Global CSS styles for CV Builder frontend
+ * @author Vicky
+ * @version 1.0.0
+ * @since 2025-01-17
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    background-color: #f9fafb;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Button Components */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-100 text-secondary-700 hover:bg-secondary-200 focus:ring-secondary-500;
+  }
+  
+  .btn-outline {
+    @apply btn border-secondary-300 text-secondary-700 hover:bg-secondary-50 focus:ring-secondary-500;
+  }
+  
+  .btn-danger {
+    @apply btn bg-error-600 text-white hover:bg-error-700 focus:ring-error-500;
+  }
+  
+  .btn-success {
+    @apply btn bg-success-600 text-white hover:bg-success-700 focus:ring-success-500;
+  }
+  
+  /* Form Components */
+  .form-input {
+    @apply block w-full px-3 py-2 border border-secondary-300 rounded-lg shadow-sm placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+  
+  .input-field {
+    @apply block w-full px-3 py-2 border border-secondary-300 rounded-lg shadow-sm placeholder-secondary-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-secondary-700 mb-1;
+  }
+  
+  .form-error {
+    @apply text-sm text-error-600 mt-1;
+  }
+  
+  .form-help {
+    @apply text-sm text-secondary-500 mt-1;
+  }
+  
+  /* Card Components */
+  .card {
+    @apply bg-white rounded-xl shadow-soft border border-secondary-200;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-secondary-200;
+  }
+  
+  .card-body {
+    @apply px-6 py-4;
+  }
+  
+  .card-footer {
+    @apply px-6 py-4 border-t border-secondary-200 bg-secondary-50 rounded-b-xl;
+  }
+  
+  /* Layout Components */
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .page-header {
+    @apply bg-white shadow-sm border-b border-secondary-200;
+  }
+  
+  .page-content {
+    @apply py-8;
+  }
+  
+  /* Navigation Components */
+  .nav-link {
+    @apply text-secondary-600 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200;
+  }
+  
+  .nav-link-active {
+    @apply nav-link bg-primary-100 text-primary-700;
+  }
+  
+  /* Loading States */
+  .loading-spinner {
+    @apply animate-spin rounded-full h-4 w-4 border-2 border-secondary-300 border-t-primary-600;
+  }
+  
+  .loading-skeleton {
+    @apply animate-pulse bg-secondary-200 rounded;
+  }
+  
+  /* Toast Notifications */
+  .toast-success {
+    @apply bg-success-50 border border-success-200 text-success-800;
+  }
+  
+  .toast-error {
+    @apply bg-error-50 border border-error-200 text-error-800;
+  }
+  
+  .toast-warning {
+    @apply bg-warning-50 border border-warning-200 text-warning-800;
+  }
+  
+  .toast-info {
+    @apply bg-primary-50 border border-primary-200 text-primary-800;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  
+  .backdrop-blur {
+    backdrop-filter: blur(8px);
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-bounce-gentle {
+    animation: bounceGentle 2s infinite;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-break {
+    page-break-after: always;
+  }
+  
+  .print-break-inside {
+    page-break-inside: avoid;
+  }
+}

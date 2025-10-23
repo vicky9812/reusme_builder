@@ -1,0 +1,58 @@
+/**
+ * TypeScript Configuration
+ * 
+ * This file configures TypeScript for the CV Builder frontend application.
+ * It defines compiler options, module resolution, and type checking rules
+ * to ensure type safety and modern JavaScript features.
+ * 
+ * Business Logic:
+ * - Enables strict type checking for better code quality
+ * - Configures module resolution for React and modern ES modules
+ * - Sets up path mapping for cleaner imports
+ * - Enables modern JavaScript features (ES2020+)
+ * - Configures JSX support for React components
+ * 
+ * @fileoverview TypeScript configuration for CV Builder frontend
+ * @author Vicky
+ * @version 1.0.0
+ * @since 2025-01-17
+ */
+
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@/components/*": ["components/*"],
+      "@/pages/*": ["pages/*"],
+      "@/services/*": ["services/*"],
+      "@/utils/*": ["utils/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/types/*": ["types/*"]
+    }
+  },
+  "include": [
+    "src"
+  ]
+}
+

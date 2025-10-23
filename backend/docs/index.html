@@ -1,0 +1,191 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>cv-builder-backend</title><meta name="description" content="Documentation for cv-builder-backend"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">cv-builder-backend</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h2>cv-builder-backend</h2></div><div class="tsd-panel tsd-typography"><a id="md:cv-builder-backend-api" class="tsd-anchor"></a><h1><a href="#md:cv-builder-backend-api">CV Builder Backend API</a></h1><p>A comprehensive REST API for building and managing CVs (Resumes) built with Node.js, Express, TypeScript, and Supabase.</p>
+<a id="md:features" class="tsd-anchor"></a><h2><a href="#md:features">Features</a></h2><a id="md:authentication-amp-authorization" class="tsd-anchor"></a><h3><a href="#md:authentication-amp-authorization">Authentication &amp; Authorization</a></h3><ul>
+<li>JWT-based authentication with access and refresh tokens</li>
+<li>OAuth integration (Google, Facebook)</li>
+<li>Role-based access control (User, Premium, Admin)</li>
+<li>Email verification and password reset</li>
+<li>Rate limiting and security middleware</li>
+</ul>
+<a id="md:cv-management" class="tsd-anchor"></a><h3><a href="#md:cv-management">CV Management</a></h3><ul>
+<li>Create, read, update, delete CVs</li>
+<li>Multiple CV layouts (Modern, Classic, Creative)</li>
+<li>CV sections: Basic Details, Education, Experience, Projects, Skills, Social Profiles</li>
+<li>CV duplication and sharing</li>
+<li>PDF generation and download</li>
+<li>Public/private CV visibility</li>
+</ul>
+<a id="md:user-management" class="tsd-anchor"></a><h3><a href="#md:user-management">User Management</a></h3><ul>
+<li>User registration and login</li>
+<li>Profile management</li>
+<li>Usage statistics and limits</li>
+<li>Premium user features</li>
+</ul>
+<a id="md:business-logic" class="tsd-anchor"></a><h3><a href="#md:business-logic">Business Logic</a></h3><ul>
+<li>Comprehensive validation rules</li>
+<li>Business rule enforcement</li>
+<li>Usage limits for free vs premium users</li>
+<li>Payment integration ready</li>
+</ul>
+<a id="md:technology-stack" class="tsd-anchor"></a><h2><a href="#md:technology-stack">Technology Stack</a></h2><ul>
+<li><strong>Runtime</strong>: Node.js 18+</li>
+<li><strong>Framework</strong>: Express.js</li>
+<li><strong>Language</strong>: TypeScript</li>
+<li><strong>Database</strong>: Supabase (PostgreSQL)</li>
+<li><strong>Authentication</strong>: JWT, OAuth 2.0</li>
+<li><strong>Validation</strong>: Custom validation with business rules</li>
+<li><strong>Logging</strong>: Winston</li>
+<li><strong>Testing</strong>: Jest</li>
+<li><strong>Code Quality</strong>: ESLint, Prettier</li>
+</ul>
+<a id="md:project-structure" class="tsd-anchor"></a><h2><a href="#md:project-structure">Project Structure</a></h2><pre><code><span class="hl-0">src</span><span class="hl-1">/</span><br/><span class="hl-1">├── </span><span class="hl-0">_shared</span><span class="hl-1">/           # </span><span class="hl-0">Shared</span><span class="hl-1"> </span><span class="hl-0">utilities</span><span class="hl-1"> </span><span class="hl-0">and</span><span class="hl-1"> </span><span class="hl-0">constants</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">constants</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">   # </span><span class="hl-0">Application</span><span class="hl-1"> </span><span class="hl-0">constants</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">types</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">       # </span><span class="hl-0">TypeScript</span><span class="hl-1"> </span><span class="hl-0">interfaces</span><br/><span class="hl-1">│   └── </span><span class="hl-0">rules</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">       # </span><span class="hl-0">Business</span><span class="hl-1"> </span><span class="hl-0">rules</span><span class="hl-1"> </span><span class="hl-0">and</span><span class="hl-1"> </span><span class="hl-0">validation</span><br/><span class="hl-1">├── </span><span class="hl-0">config</span><span class="hl-1">/            # </span><span class="hl-0">Configuration</span><span class="hl-1"> </span><span class="hl-0">files</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">database</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">    # </span><span class="hl-0">Database</span><span class="hl-1"> </span><span class="hl-0">configuration</span><br/><span class="hl-1">│   └── </span><span class="hl-0">environment</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1"> # </span><span class="hl-0">Environment</span><span class="hl-1"> </span><span class="hl-0">variables</span><br/><span class="hl-1">├── </span><span class="hl-0">controllers</span><span class="hl-1">/       # </span><span class="hl-0">Request</span><span class="hl-1"> </span><span class="hl-0">handlers</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">AuthController</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   └── </span><span class="hl-0">CVController</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">├── </span><span class="hl-0">middleware</span><span class="hl-1">/        # </span><span class="hl-0">Express</span><span class="hl-1"> </span><span class="hl-0">middleware</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">auth</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">        # </span><span class="hl-0">Authentication</span><span class="hl-1"> </span><span class="hl-0">middleware</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">validation</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">  # </span><span class="hl-0">Validation</span><span class="hl-1"> </span><span class="hl-0">middleware</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">errorHandler</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   └── </span><span class="hl-0">rateLimiter</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">├── </span><span class="hl-0">models</span><span class="hl-1">/           # </span><span class="hl-0">Data</span><span class="hl-1"> </span><span class="hl-0">models</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">User</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   └── </span><span class="hl-2">CV</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">├── </span><span class="hl-0">routes</span><span class="hl-1">/           # </span><span class="hl-2">API</span><span class="hl-1"> </span><span class="hl-0">routes</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">auth</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">cv</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   └── </span><span class="hl-0">index</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">├── </span><span class="hl-0">services</span><span class="hl-1">/         # </span><span class="hl-0">Business</span><span class="hl-1"> </span><span class="hl-0">logic</span><span class="hl-1"> </span><span class="hl-0">services</span><br/><span class="hl-1">│   └── </span><span class="hl-0">AuthService</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">├── </span><span class="hl-0">utils</span><span class="hl-1">/            # </span><span class="hl-0">Utility</span><span class="hl-1"> </span><span class="hl-0">functions</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">logger</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   ├── </span><span class="hl-0">response</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">│   └── </span><span class="hl-0">validation</span><span class="hl-1">.</span><span class="hl-0">ts</span><br/><span class="hl-1">└── </span><span class="hl-0">server</span><span class="hl-1">.</span><span class="hl-0">ts</span><span class="hl-1">         # </span><span class="hl-0">Main</span><span class="hl-1"> </span><span class="hl-0">server</span><span class="hl-1"> </span><span class="hl-0">file</span>
+</code><button>Copy</button></pre>
+<a id="md:getting-started" class="tsd-anchor"></a><h2><a href="#md:getting-started">Getting Started</a></h2><a id="md:prerequisites" class="tsd-anchor"></a><h3><a href="#md:prerequisites">Prerequisites</a></h3><ul>
+<li>Node.js 18+ </li>
+<li>npm or yarn</li>
+<li>Supabase account and project</li>
+</ul>
+<a id="md:installation" class="tsd-anchor"></a><h3><a href="#md:installation">Installation</a></h3><ol>
+<li>Clone the repository</li>
+</ol>
+<pre><code class="language-bash"><span class="hl-3">git</span><span class="hl-1"> </span><span class="hl-4">clone</span><span class="hl-1"> &lt;</span><span class="hl-4">repository-ur</span><span class="hl-1">l&gt;</span><br/><span class="hl-3">cd</span><span class="hl-1"> </span><span class="hl-4">cv-builder-backend</span>
+</code><button>Copy</button></pre>
+<ol start="2">
+<li>Install dependencies</li>
+</ol>
+<pre><code class="language-bash"><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">install</span>
+</code><button>Copy</button></pre>
+<ol start="3">
+<li>Set up environment variables</li>
+</ol>
+<pre><code class="language-bash"><span class="hl-3">cp</span><span class="hl-1"> </span><span class="hl-4">env.example</span><span class="hl-1"> </span><span class="hl-4">.env</span>
+</code><button>Copy</button></pre>
+<ol start="4">
+<li>Configure your <code>.env</code> file with:</li>
+</ol>
+<pre><code class="language-env"># Server Configuration
+PORT=3000
+NODE_ENV=development
+
+# JWT Configuration
+JWT_SECRET=your-super-secret-jwt-key-here
+JWT_EXPIRES_IN=7d
+JWT_REFRESH_SECRET=your-refresh-secret-key-here
+JWT_REFRESH_EXPIRES_IN=30d
+
+# Supabase Configuration
+SUPABASE_URL=your-supabase-project-url
+SUPABASE_ANON_KEY=your-supabase-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
+
+# OAuth Configuration
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+FACEBOOK_APP_ID=your-facebook-app-id
+FACEBOOK_APP_SECRET=your-facebook-app-secret
+</code><button>Copy</button></pre>
+<ol start="5">
+<li><p>Set up the database</p>
+<ul>
+<li>Create a new Supabase project</li>
+<li>Run the SQL schema from <code>database/schema.sql</code></li>
+<li>Configure Row Level Security (RLS) policies</li>
+</ul>
+</li>
+<li><p>Start the development server</p>
+</li>
+</ol>
+<pre><code class="language-bash"><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">dev</span>
+</code><button>Copy</button></pre>
+<p>The API will be available at <code>http://localhost:3000</code></p>
+<a id="md:api-endpoints" class="tsd-anchor"></a><h2><a href="#md:api-endpoints">API Endpoints</a></h2><a id="md:authentication" class="tsd-anchor"></a><h3><a href="#md:authentication">Authentication</a></h3><ul>
+<li><code>POST /api/auth/register</code> - Register new user</li>
+<li><code>POST /api/auth/login</code> - Login user</li>
+<li><code>POST /api/auth/refresh</code> - Refresh access token</li>
+<li><code>POST /api/auth/logout</code> - Logout user</li>
+<li><code>GET /api/auth/profile</code> - Get user profile</li>
+<li><code>POST /api/auth/change-password</code> - Change password</li>
+<li><code>POST /api/auth/request-password-reset</code> - Request password reset</li>
+<li><code>POST /api/auth/reset-password</code> - Reset password with token</li>
+</ul>
+<a id="md:cv-management-1" class="tsd-anchor"></a><h3><a href="#md:cv-management-1">CV Management</a></h3><ul>
+<li><code>POST /api/cv</code> - Create new CV</li>
+<li><code>GET /api/cv</code> - Get user&#39;s CVs (paginated)</li>
+<li><code>GET /api/cv/:id</code> - Get CV by ID</li>
+<li><code>PUT /api/cv/:id</code> - Update CV</li>
+<li><code>DELETE /api/cv/:id</code> - Delete CV</li>
+<li><code>POST /api/cv/:id/duplicate</code> - Duplicate CV</li>
+<li><code>POST /api/cv/:id/download</code> - Download CV as PDF</li>
+<li><code>POST /api/cv/:id/share</code> - Share CV</li>
+<li><code>GET /api/cv/layouts</code> - Get available layouts</li>
+<li><code>GET /api/cv/stats</code> - Get user statistics</li>
+</ul>
+<a id="md:development" class="tsd-anchor"></a><h2><a href="#md:development">Development</a></h2><a id="md:available-scripts" class="tsd-anchor"></a><h3><a href="#md:available-scripts">Available Scripts</a></h3><pre><code class="language-bash"><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">dev</span><span class="hl-1">          </span><span class="hl-5"># Start development server</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">build</span><span class="hl-1">        </span><span class="hl-5"># Build for production</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">start</span><span class="hl-1">           </span><span class="hl-5"># Start production server</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">test</span><span class="hl-1">            </span><span class="hl-5"># Run tests</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">test:watch</span><span class="hl-1">  </span><span class="hl-5"># Run tests in watch mode</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">lint</span><span class="hl-1">        </span><span class="hl-5"># Run ESLint</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">lint:fix</span><span class="hl-1">    </span><span class="hl-5"># Fix ESLint errors</span>
+</code><button>Copy</button></pre>
+<a id="md:code-quality" class="tsd-anchor"></a><h3><a href="#md:code-quality">Code Quality</a></h3><p>The project uses:</p>
+<ul>
+<li><strong>ESLint</strong> for code linting</li>
+<li><strong>TypeScript</strong> for type safety</li>
+<li><strong>Jest</strong> for testing</li>
+<li><strong>Winston</strong> for logging</li>
+</ul>
+<a id="md:database-schema" class="tsd-anchor"></a><h3><a href="#md:database-schema">Database Schema</a></h3><p>The database includes tables for:</p>
+<ul>
+<li>Users (with OAuth support)</li>
+<li>CVs and all related sections</li>
+<li>Authentication tokens</li>
+<li>Usage tracking</li>
+<li>Payment transactions (ready for integration)</li>
+</ul>
+<a id="md:security-features" class="tsd-anchor"></a><h2><a href="#md:security-features">Security Features</a></h2><ul>
+<li>JWT authentication with refresh tokens</li>
+<li>Rate limiting on all endpoints</li>
+<li>Input validation and sanitization</li>
+<li>CORS configuration</li>
+<li>Helmet.js security headers</li>
+<li>Row Level Security (RLS) in Supabase</li>
+<li>Password hashing with bcrypt</li>
+<li>OAuth 2.0 integration</li>
+</ul>
+<a id="md:business-rules" class="tsd-anchor"></a><h2><a href="#md:business-rules">Business Rules</a></h2><p>The application enforces various business rules:</p>
+<ul>
+<li>User registration limits</li>
+<li>CV creation limits (free vs premium)</li>
+<li>Download and share limits</li>
+<li>File upload restrictions</li>
+<li>Email verification requirements</li>
+</ul>
+<a id="md:testing" class="tsd-anchor"></a><h2><a href="#md:testing">Testing</a></h2><p>Run tests with:</p>
+<pre><code class="language-bash"><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">test</span>
+</code><button>Copy</button></pre>
+<p>Test coverage includes:</p>
+<ul>
+<li>Unit tests for services and utilities</li>
+<li>Integration tests for API endpoints</li>
+<li>Validation rule testing</li>
+<li>Authentication flow testing</li>
+</ul>
+<a id="md:deployment" class="tsd-anchor"></a><h2><a href="#md:deployment">Deployment</a></h2><a id="md:environment-setup" class="tsd-anchor"></a><h3><a href="#md:environment-setup">Environment Setup</a></h3><ol>
+<li>Set <code>NODE_ENV=production</code></li>
+<li>Configure production database</li>
+<li>Set up SSL certificates</li>
+<li>Configure environment variables</li>
+</ol>
+<a id="md:build-and-deploy" class="tsd-anchor"></a><h3><a href="#md:build-and-deploy">Build and Deploy</a></h3><pre><code class="language-bash"><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">run</span><span class="hl-1"> </span><span class="hl-4">build</span><br/><span class="hl-3">npm</span><span class="hl-1"> </span><span class="hl-4">start</span>
+</code><button>Copy</button></pre>
+<a id="md:api-documentation" class="tsd-anchor"></a><h2><a href="#md:api-documentation">API Documentation</a></h2><p>The API follows RESTful conventions and returns consistent JSON responses:</p>
+<pre><code class="language-json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;success&quot;</span><span class="hl-1">: </span><span class="hl-7">true</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;message&quot;</span><span class="hl-1">: </span><span class="hl-4">&quot;Operation successful&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;data&quot;</span><span class="hl-1">: { </span><span class="hl-8">...</span><span class="hl-1"> },</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;pagination&quot;</span><span class="hl-1">: { </span><span class="hl-8">...</span><span class="hl-1"> } </span><span class="hl-5">// For paginated responses</span><br/><span class="hl-1">}</span>
+</code><button>Copy</button></pre>
+<p>Error responses:</p>
+<pre><code class="language-json"><span class="hl-1">{</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;success&quot;</span><span class="hl-1">: </span><span class="hl-7">false</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;message&quot;</span><span class="hl-1">: </span><span class="hl-4">&quot;Error description&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-6">&quot;error&quot;</span><span class="hl-1">: </span><span class="hl-4">&quot;Detailed error information&quot;</span><br/><span class="hl-1">}</span>
+</code><button>Copy</button></pre>
+<a id="md:contributing" class="tsd-anchor"></a><h2><a href="#md:contributing">Contributing</a></h2><ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Make your changes</li>
+<li>Add tests</li>
+<li>Run linting and tests</li>
+<li>Submit a pull request</li>
+</ol>
+<a id="md:license" class="tsd-anchor"></a><h2><a href="#md:license">License</a></h2><p>This project is licensed under the MIT License.</p>
+<a id="md:support" class="tsd-anchor"></a><h2><a href="#md:support">Support</a></h2><p>For support and questions, please contact the development team.</p>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-index-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><h4 class="uppercase">Member Visibility</h4><form><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div><div class="tsd-theme-toggle"><h4 class="uppercase">Theme</h4><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-index-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:cv-builder-backend-api"><span>CV <wbr/>Builder <wbr/>Backend API</span></a><ul><li><a href="#md:features"><span>Features</span></a></li><li><ul><li><a href="#md:authentication-amp-authorization"><span>Authentication &amp; <wbr/>Authorization</span></a></li><li><a href="#md:cv-management"><span>CV <wbr/>Management</span></a></li><li><a href="#md:user-management"><span>User <wbr/>Management</span></a></li><li><a href="#md:business-logic"><span>Business <wbr/>Logic</span></a></li></ul></li><li><a href="#md:technology-stack"><span>Technology <wbr/>Stack</span></a></li><li><a href="#md:project-structure"><span>Project <wbr/>Structure</span></a></li><li><a href="#md:getting-started"><span>Getting <wbr/>Started</span></a></li><li><ul><li><a href="#md:prerequisites"><span>Prerequisites</span></a></li><li><a href="#md:installation"><span>Installation</span></a></li></ul></li><li><a href="#md:api-endpoints"><span>API <wbr/>Endpoints</span></a></li><li><ul><li><a href="#md:authentication"><span>Authentication</span></a></li><li><a href="#md:cv-management-1"><span>CV <wbr/>Management</span></a></li></ul></li><li><a href="#md:development"><span>Development</span></a></li><li><ul><li><a href="#md:available-scripts"><span>Available <wbr/>Scripts</span></a></li><li><a href="#md:code-quality"><span>Code <wbr/>Quality</span></a></li><li><a href="#md:database-schema"><span>Database <wbr/>Schema</span></a></li></ul></li><li><a href="#md:security-features"><span>Security <wbr/>Features</span></a></li><li><a href="#md:business-rules"><span>Business <wbr/>Rules</span></a></li><li><a href="#md:testing"><span>Testing</span></a></li><li><a href="#md:deployment"><span>Deployment</span></a></li><li><ul><li><a href="#md:environment-setup"><span>Environment <wbr/>Setup</span></a></li><li><a href="#md:build-and-deploy"><span>Build and <wbr/>Deploy</span></a></li></ul></li><li><a href="#md:api-documentation"><span>API <wbr/>Documentation</span></a></li><li><a href="#md:contributing"><span>Contributing</span></a></li><li><a href="#md:license"><span>License</span></a></li><li><a href="#md:support"><span>Support</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>cv-builder-backend</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

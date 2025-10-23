@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      target: api
+    container_name: cvbuilder-backend
+    env_file:
+      - .env
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+
+  docs:
+    build:
+      context: ./backend
+      target: docs
+    container_name: cvbuilder-docs
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
