@@ -31,9 +31,11 @@
  */
 
 import dotenv from 'dotenv';
+import path from 'path';
 
 // Load environment variables from .env file
-dotenv.config();
+// Look for .env file in the backend directory
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 /**
  * Environment configuration interface
